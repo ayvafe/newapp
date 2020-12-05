@@ -1,0 +1,35 @@
+{
+  "name": "newapp",
+  "version": "1.0.0",
+  "description": "New backend application on Docker with GraphQL/MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayvafe/newapp.git"
+  },
+  "author": "Feya Ayvazyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayvafe/newapp/issues"
+  },
+  "homepage": "https://github.com/ayvafe/newapp#readme",
+  "dependencies": {
+    "apollo-server": "^2.6.4",
+    "apollo-server-express": "^2.6.4",
+    "body-parser": "^1.19.0",
+    "docker": "^1.0.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "express": "^4.17.1",
+    "graphql": "^14.4.1",
+    "js-md5": "^0.7.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.1",
+    "validator": "^5.5.0"
+  }
+}
