@@ -3,6 +3,7 @@ const { gql } = require('apollo-server');
 const User = gql`
   type User {
     id: ID!
+    age: Int!
     username: String!
     password: String!
     email: String!
@@ -10,6 +11,9 @@ const User = gql`
     lastname: String!
     birthdate: String!
     token: String!
+  }
+  type Subscription{
+    userUpdate: User!
   }
   input RegisterUserInput {
     username: String!

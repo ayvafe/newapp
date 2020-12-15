@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const pubsub = require('../pubsub');
 
 const UserSchema = new Schema({
     username: { type: String, required: true },
@@ -8,6 +9,7 @@ const UserSchema = new Schema({
     lastname: { type: String, default: null },
     email: { type: String, required: true },
     birthdate: { type: String, default: null },
+    age: { type: Number, default: 0 },
     dateCreated: { type: Date, default: Date.now() },
 },
 {
@@ -23,5 +25,12 @@ UserSchema.methods.comparePassword = function (password) {
 };
 
 const User = mongoose.model('User', UserSchema);
+
+User.watch({ fullDocument: 'updateLookup' })
+    .on('change', (data) => {
+        if (data.fullDocument) {
+            pubsub.publish('userUpdated', data.fullDocument);
+        }
+    });
 
 module.exports = User;

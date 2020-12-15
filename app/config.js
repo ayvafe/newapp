@@ -7,5 +7,9 @@ module.exports = {
         useUnifiedTopology: true,
         useCreateIndex: true,
         useFindAndModify: true,
+        readPreference: 'primary',
+        socketTimeoutMS: 90000,
+        keepAlive: 10000,
+        connectTimeoutMS: 30000,
     },
 };

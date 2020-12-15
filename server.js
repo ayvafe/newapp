@@ -11,7 +11,12 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     context: ({ req }) => {
-        const auth = req.headers.token || req.query.token;
+        let auth = '';
+	if(req && req.headers) {
+  	    auth = req.header.token;
+	} else if (req && req.query) {
+	    auth = req.query.token;
+	}
 
         return { auth, models };
     },
